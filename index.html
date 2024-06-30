@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Products list <span>300 in total</span></h2>
+        <div class="buttons">
+            <button class="btn" onclick="meTuKlikuar()">Add</button>
+            <button class="btn">Filters</button>
+        </div>
+        <div class="filters">
+            <input id="Name" type="text" placeholder="Name">
+            <input id="Price" type="text" placeholder="Price">
+            <input id="Color" type="text" placeholder="Color">
+        </div>
+        <table id="tabela">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="teDhena">
+                    <td class="Emri">Mark</td>
+                    <td class="Cmimi">123</td>
+                    <td class="Ngjyra">red</td>
+                    <td>
+                        <button class="action-btn modify" onclick="modifiko()">Modify</button>
+                        <button class="action-btn delete" onclick="deleto()">Delete</button>
+                    </td>
+                </tr>
+                <tr class="teDhena">
+                    <td class="Emri">Jacob</td>
+                    <td class="Cmimi">34</td>
+                    <td class="Ngjyra">blue</td>
+                    <td>
+                        <button class="action-btn modify" onclick="modifiko()">Modify</button>
+                        <button class="action-btn delete"onclick="deleto()">Delete</button>
+                    </td>
+                </tr>
+                <tr class="teDhena">
+                    <td class="Emri">Larry the Bird</td>
+                    <td class="Cmimi">65</td>
+                    <td class="Ngjyra">yellow</td>
+                    <td>
+                        <button class="action-btn modify" onclick="modifiko()">Modify</button>
+                        <button class="action-btn delete" onclick="deleto()">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="calculator">
+        <div class="display">
+            <span class="mode">Standard</span>
+            <div class="result">0</div>
+        </div>
+        <div class="buttons">
+            <button>%</button>
+            <button>CE</button>
+            <button onclick="d()">C</button>
+            <button>⌫</button>
+            <button>¹/ₓ</button>
+            <button>x²</button>
+            <button>√x</button>
+            <button class="number" onclick="numri()">/</button>
+            <button class="number"  onclick="numri()">7</button>
+            <button class="number"  onclick="numri()">8</button>
+            <button class="number" onclick="numri()">9</button>
+            <button class="number" onclick="numri()">x</button>
+            <button class="number"  onclick="numri()">4</button>
+            <button class="number"  onclick="numri()">5</button>
+            <button class="number" onclick="numri()">6</button>
+            <button class="number" onclick="numri()">-</button>
+            <button class="number"  onclick="numri()">1</button>
+            <button class="number" onclick="numri()">2</button>
+            <button class="number" onclick="numri()">3</button>
+            <button class="number" onclick="numri()">+</button>            
+            <button class="number" onclick="numri()">0</button>
+            <button>.</button>
+            <button id="barazimi" onclick="perfundimi()">=</button>
+        </div>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>

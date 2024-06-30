@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="styletodo.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h1>Todo App</h1>
+        <div class="input-group">
+            <input type="text" placeholder="Add your new todo" id="new-todo-input">
+            <button id="add-todo-btn" onclick="shtoListen()">+</button>
+        </div>
+        <ul id="listaplote" class="todo-list">
+            <li>Buy a new gaming laptop<button class="delete-btn" onclick="fshijDetyrenVjeter()">🗑️</button></li>
+            <li>Complete a previous task <button class="delete-btn" onclick="fshijDetyrenVjeter()">🗑️</button></li>
+            <li>Create video for YouTube<button class="delete-btn" onclick="fshijDetyrenVjeter()">🗑️</button></li>
+            <li>Create a new portfolio site<button class="delete-btn" onclick="fshijDetyrenVjeter()">🗑️</button></li>
+        </ul>
+        <div class="footer">
+            <span>You have 4 pending tasks</span>
+            <button id="clear-all-btn" onclick="pastrojiTeGjitha()">Clear All</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

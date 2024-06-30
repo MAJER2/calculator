@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.filters {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.filters input {
+    padding: 10px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+.action-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.action-btn.modify {
+    background-color: #28a745;
+}
+
+.action-btn.modify:hover {
+    background-color: #218838;
+}
+
+.action-btn.delete {
+    background-color: #dc3545;
+}
+
+.action-btn.delete:hover {
+    background-color: #c82333;
+}
+
+.calculator {
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.display {
+    background-color: #e0e0e0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.display .mode {
+    font-size: 14px;
+    color: #666;
+}
+
+.display .result {
+    font-size: 32px;
+    color: #000;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+
+.buttons button {
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:nth-child(4n) {
+    background-color: #f0f0f0;
+}
+
+.buttons button:hover {
+    background-color: #e0e0e0;
+}
+
+.buttons button:active {
+    background-color: #d0d0d0;
+}
+
+.buttons button:nth-last-child(1) {
+    background-color: #007acc;
+    color: #fff;
+}
+
+.buttons button:nth-last-child(1):hover {
+    background-color: #006bb3;
+}
+
+.buttons button:nth-last-child(1):active {
+    background-color: #005c99;}
+
+   
+    
