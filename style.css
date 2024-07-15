@@ -2,9 +2,39 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 .container {
     width: 80%;
     margin: 0 auto;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.sidebar {
+    margin-bottom: 20px;
+}
+
+.main-content {
+    overflow-x: auto;
+}
+
+@media(min-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr 3fr; /* Adjusted grid column ratio */
+        gap: 20px;
+    }
+
+    .sidebar {
+        grid-column: 1;
+    }
+
+    .main-content {
+        grid-column: 2;
+    }
 }
 
 h2 {
@@ -15,6 +45,7 @@ h2 {
 
 .buttons {
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
@@ -31,22 +62,30 @@ h2 {
     background-color: #0056b3;
 }
 
+.plus{
+    border:none;
+    color: blue;
+    width: 1rem;
+    background-color: transparent;
+}
+
 .filters {
-    margin: 20px 0;
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
 .filters input {
     padding: 10px;
-    width: 150px;
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
+    margin:5%;
 }
 
 th, td {
@@ -83,74 +122,3 @@ thead {
 .action-btn.delete:hover {
     background-color: #c82333;
 }
-
-.calculator {
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-.display {
-    background-color: #e0e0e0;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-}
-
-.display .mode {
-    font-size: 14px;
-    color: #666;
-}
-
-.display .result {
-    font-size: 32px;
-    color: #000;
-}
-
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-}
-
-.buttons button {
-    padding: 20px;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: #f9f9f9;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.buttons button:nth-child(4n) {
-    background-color: #f0f0f0;
-}
-
-.buttons button:hover {
-    background-color: #e0e0e0;
-}
-
-.buttons button:active {
-    background-color: #d0d0d0;
-}
-
-.buttons button:nth-last-child(1) {
-    background-color: #007acc;
-    color: #fff;
-}
-
-.buttons button:nth-last-child(1):hover {
-    background-color: #006bb3;
-}
-
-.buttons button:nth-last-child(1):active {
-    background-color: #005c99;}
-
-   
-    

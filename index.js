@@ -1,193 +1,96 @@
-//import { d, numri, perfundimi } from './calculatorModule.js';
-//import { shtoRow, deleto, modifiko, meTuKlikuar } from './listaModule.js';
-//import { shtoListen, fshijDetyrenVjeter, pastrojiTeGjitha } from './todoModule.js';
-
 const newRow = `
     <tr class="teDhena">
-                    <td class="Emri"></td>
-                    <td class="Cmimi"></td>
-                    <td class="Ngjyra"></td>
-                    <td>
-                        <button class="action-btn modify" onclick="modifiko()">Modify</button>
-                        <button class="action-btn delete" onclick="deleto()">Delete</button>
-                    </td>
-                </tr>
+        <td class="Kati"></td>
+        <td class="ID"></td>
+        <td class="Muret"></td>
+        <td class="Tavani"></td>
+        <td class="Dritare_Dyer_etj"></td>
+        <td>
+            <button class="action-btn modify" onclick="modifiko(this)">Modify</button>
+            <button class="action-btn delete" onclick="deleto(this)">Delete</button>
+        </td>
+        <td class="Siperfaqia_Neto"></td>
+    </tr>
 `;
 
-function d(){
-    location.reload();
-   return document.querySelector(".result").innerHTML=0;
-   }
-
- 
-
-
-function perfundimi() {
-    const resultElement = document.querySelector(".result");
-    const resultContent = resultElement.innerHTML;
-
-    
-       
-    const prodhimi = resultContent.indexOf("x");
-
-    if (prodhimi !== -1) {
-         
-        const numer1 = parseFloat(resultContent.slice(0, prodhimi).trim());
-        const numeri2 = parseFloat(resultContent.slice(prodhimi + 1).trim());
-
-        
-        const product = numer1 * numeri2;
-
-    
-        resultElement.innerHTML = product;
-    }
-    
-    
-    const pjestimi = resultContent.indexOf("/");
-    const shuma = resultContent.indexOf("+");
-    const diferenca = resultContent.indexOf("-");
-
-    if (pjestimi !== -1) {
-        const numer1 = parseFloat(resultContent.slice(0, pjestimi).trim());
-        const numeri2 = parseFloat(resultContent.slice(pjestimi + 1).trim());
-        const division = numer1 / numeri2;
-        resultElement.innerHTML = division;
-    } else if (shuma !== -1) {
-        const numer1 = parseFloat(resultContent.slice(0, shuma).trim());
-        const numeri2 = parseFloat(resultContent.slice(shuma + 1).trim());
-        const sum = numer1 + numeri2;
-        resultElement.innerHTML = sum;
-    } else if (diferenca !== -1) {
-        const numer1 = parseFloat(resultContent.slice(0, diferenca).trim());
-        const numeri2 = parseFloat(resultContent.slice(diferenca + 1).trim());
-        const difference = numer1 - numeri2;
-        resultElement.innerHTML = difference;
-    }
-    
-}
-
-
-function shtoRow(a, b, c) {
+function shtoRow(a, b, c, d, e, s) {
     const tableBody = document.getElementById("tabela").getElementsByTagName("tbody")[0];
     tableBody.insertAdjacentHTML('beforeend', newRow);
     const rreshtiRi = tableBody.lastElementChild;
-
- 
-    rreshtiRi.getElementsByClassName("Emri")[0].innerText = a;
-    rreshtiRi.getElementsByClassName("Cmimi")[0].innerText = b;
-    rreshtiRi.getElementsByClassName("Ngjyra")[0].innerText = c;
+    rreshtiRi.getElementsByClassName("Kati")[0].innerText = a;
+    rreshtiRi.getElementsByClassName("ID")[0].innerText = b;
+    rreshtiRi.getElementsByClassName("Muret")[0].innerText = c.split(" ");
+    rreshtiRi.getElementsByClassName("Tavani")[0].innerText = d.split(" ");
+    rreshtiRi.getElementsByClassName("Dritare_Dyer_etj")[0].innerText = e.split(" ");
+    rreshtiRi.getElementsByClassName("Siperfaqia_Neto")[0].innerText = s;
 }
 
- function deleto(){
-    for (let i = 0; i < document.querySelectorAll(".delete").length; i++) {
-        document.querySelectorAll(".delete")[i].addEventListener("click", function() {
-            
-            document.querySelectorAll(".teDhena")[i].innerHTML = "";
-           
-        });
-    }
+function deleto(button) {
+    const row = button.closest('.teDhena');
+    row.remove();
 }
 
-
-
-function modifiko() {
-    for (let i = 0; i < document.querySelectorAll(".modify").length; i++) {
-        document.querySelectorAll(".modify")[i].addEventListener("click", function() {
-            const a = document.querySelector("#Name").value;
-            const b = document.querySelector("#Price").value;
-            const c = document.querySelector("#Color").value;
-            
-            document.querySelectorAll(".Emri")[i].innerHTML = a;
-            document.querySelectorAll(".Cmimi")[i].innerHTML = b;
-            document.querySelectorAll(".Ngjyra")[i].innerHTML = c;
-        });
-    }
-}
-function meTuKlikuar() {
-   
-    const a = document.getElementById("Name").value;
-    const b = document.getElementById("Price").value;
-    const c = document.getElementById("Color").value;
-    shtoRow(a, b, c);
-
+function modifiko(button) {
+    const row = button.closest('.teDhena');
+    const a = document.querySelector("#Kati").value;
+    const b = document.querySelector("#ID").value;
+    const c = document.querySelector("#Muret").value;
+    const d = document.querySelector("#Tavani").value;
+    const e = document.querySelector("#Dritare_Dyer_etj").value;
+    
+    row.getElementsByClassName("Kati")[0].innerHTML = a;
+    row.getElementsByClassName("ID")[0].innerHTML = b;
+    row.getElementsByClassName("Muret")[0].innerHTML = c;
+    row.getElementsByClassName("Tavani")[0].innerHTML = d;
+    row.getElementsByClassName("Dritare_Dyer_etj")[0].innerHTML = e;
 }
 
-function spani(){
-    var nrDetyrave=document.querySelectorAll("li").length;
-    return document.querySelector("span").innerText = `You have ${nrDetyrave} pending tasks`;
-
-}
-
-
-function shtoListen() {
-    var ul = document.querySelector(".todo-list");
-    var li = document.createElement("li");
-
-    li.appendChild(document.createTextNode(document.querySelector('#new-todo-input').value));
-    
-    
-    var deleteBtn = document.createElement("button");
-    deleteBtn.className = "delete-btn";
-    deleteBtn.innerHTML = "🗑️";
-    
-   
-    li.appendChild(deleteBtn);
-  
-    ul.appendChild(li);
-    spani();
-    
-    deleteBtn.addEventListener('click', function() {
-        ul.removeChild(li);
-       
-    });
-    
-}
-
-function fshijDetyrenVjeter(){
-    
-    const detyraVjeter=document.querySelectorAll("li").length;
-    for( let i=0;i<detyraVjeter;i++)
-    document.querySelectorAll("li")[i].addEventListener("click",function(){
-document.querySelectorAll("li")[i].remove();
-spani();
-})
-
-
- }
-
-function pastrojiTeGjitha() {
-    
-    document.querySelector("#clear-all-btn").addEventListener("click", () => {
-        let ul = document.querySelector(".todo-list");
-          
-        while (ul.firstChild) {
-            ul.removeChild(ul.firstChild);
+function shumaMureve() {
+    let a = document.querySelector("#Muret").value;
+    let b = a.split(",");
+    let c = 0; 
+    for (let i = 0; i < b.length; i += 2) {
+        if (i + 1 < b.length) {
+            c += (parseFloat(b[i]) * parseFloat(b[i + 1])); 
         }
-        spani();
-    });
-    
+    }
+    return c; 
 }
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    function numri() {
-        const numbers = document.querySelectorAll(".number");
-        const result = document.querySelector(".result");
-        let accumulatedNumber = "";
-    
-        numbers.forEach((number) => {
-            number.addEventListener('click', () => {
-                accumulatedNumber += number.innerHTML;
-                result.innerHTML = accumulatedNumber;
-            });
-        });
+function shumaDritareve() {
+    let a = document.querySelector("#Dritare_Dyer_etj").value;
+    let b = a.split(",");
+    let c = 0; 
+    for (let i = 0; i < b.length; i += 2) {
+        if (i + 1 < b.length) { 
+            c += (parseFloat(b[i]) * parseFloat(b[i + 1])); 
+        }
     }
-    
-    
-    numri(); 
-});
+    return c; 
+}
 
+function shumaTavaneve() {
+    let a = document.querySelector("#Tavani").value;
+    let b = a.split(",");
+    let c = 0; 
+    for (let i = 0; i < b.length; i += 2) {
+        if (i + 1 < b.length) { 
+            c += (parseFloat(b[i]) * parseFloat(b[i + 1])); 
+        }
+    }
+    return c; 
+}
 
-
-
+function meTuKlikuar() {
+    const a = document.getElementById("Kati").value;
+    const b = document.getElementById("ID").value;
+    const c = document.getElementById("Muret").value;
+    const d = document.getElementById("Tavani").value;
+    const e = document.getElementById("Dritare_Dyer_etj").value;
+   
+    // Calculate s based on the values of Muret, Tavani, and Dritareve
+    const s = (shumaMureve() + shumaTavaneve()) - shumaDritareve();
+   
+    // Add a new row with the calculated values
+    shtoRow(a, b, c, d, e, s);
+}
